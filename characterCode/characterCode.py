@@ -29,6 +29,11 @@ def intToHex(int_array):
 
     return hexArray
 
+def intToB32(int_array):
+    bytesArray = bytes(int_array)
+    b32String = base64.b32encode(bytesArray).decode('utf-8')
+    return b32String
+
 def intTob64(int_array): #converts to base64
     byteArray = bytes(int_array)
     base64_string = base64.b64encode(byteArray).decode('utf-8')
@@ -61,6 +66,9 @@ print(result)
 
 hexResult = intToHex(result)
 print(hexResult)
+
+base32_result = intToB32(result)
+print(base32_result)
 
 base64Result = intTob64(result)
 print(base64Result)
