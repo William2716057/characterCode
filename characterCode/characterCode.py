@@ -10,18 +10,27 @@ def stringToIntArray(inputString): #converts to decimal
     return intArray
 
 def intToHex(int_array):
-    hex_array = []
+    hexArray = []
 
     for num in int_array:
-        hex_representation = hex(num)[2:]  # Convert integer to hexadecimal, remove '0x' prefix
-        hex_array.append(hex_representation)
+        hexRepresentation = hex(num)[2:]  # Convert integer to hexadecimal, remove '0x' prefix
+        hexArray.append(hexRepresentation)
 
-    return hex_array
+    return hexArray
 
 def intTob64(int_array): #converts to base64
     byteArray = bytes(int_array)
     base64_string = base64.b64encode(byteArray).decode('utf-8')
     return base64_string
+
+def intToBinary(int_array):
+    binaryArray = []
+
+    for num in int_array:
+        binaryRepresentation = bin(num)[2:]  # Convert integer to binary and remove '0b' prefix
+        binaryArray.append(binaryRepresentation)
+
+    return binaryArray
 
 def intToOctal(int_array):
     octalArray = []
@@ -41,6 +50,10 @@ print(hexResult)
 
 base64Result = intTob64(result)
 print(base64Result)
+
+#here
+binaryResult = intToBinary(result)
+print(binaryResult)
 
 octalResult = intToOctal(result)
 print(octalResult)
