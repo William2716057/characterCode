@@ -16,9 +16,12 @@ def intToHex(int_array):
 
     return hex_array
 
-input_string = "abcdeABCDE"
+
+input_string = "abcdeABCDE" #change string here
 result = stringToIntArray(input_string)
 print(result)
 
 hexResult = intToHex(result)
 print(hexResult)
+
+
