@@ -1,5 +1,16 @@
 import base64
 
+def alphabetPos(text):
+    result = []
+    for char in text:
+        if char.isalpha():
+
+            if char.isupper():
+                result.append(str(ord(char) - ord('A') + 1))
+            else:
+                result.append(str(ord(char) - ord('a') + 1))
+    return ' '.join(result)
+
 def stringToIntArray(inputString): #converts to decimal
     intArray = []
 
@@ -41,7 +52,10 @@ def intToOctal(int_array):
 
     return octalArray
 
+
+
 inputString = "abcdeABCDE" #change string here
+print(alphabetPos(inputString))
 result = stringToIntArray(inputString)
 print(result)
 
@@ -51,7 +65,6 @@ print(hexResult)
 base64Result = intTob64(result)
 print(base64Result)
 
-#here
 binaryResult = intToBinary(result)
 print(binaryResult)
 
