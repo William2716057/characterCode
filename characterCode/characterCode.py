@@ -1,13 +1,13 @@
 import base64
 
 def stringToIntArray(inputString): #converts to decimal
-    int_array = []
+    intArray = []
 
     for char in inputString:
         charCode = ord(char)
-        int_array.append(charCode)
+        intArray.append(charCode)
 
-    return int_array
+    return intArray
 
 def intToHex(int_array):
     hex_array = []
@@ -18,21 +18,32 @@ def intToHex(int_array):
 
     return hex_array
 
-def int_array_to_base64(int_array):
-    bytes_array = bytes(int_array)
-    base64_string = base64.b64encode(bytes_array).decode('utf-8')
+def intTob64(int_array): #converts to base64
+    byteArray = bytes(int_array)
+    base64_string = base64.b64encode(byteArray).decode('utf-8')
     return base64_string
 
+def intToOctal(int_array):
+    octalArray = []
 
-input_string = "abcdeABCDE" #change string here
-result = stringToIntArray(input_string)
+    for num in int_array:
+        octalRepresentation = oct(num)[2:]  # Convert integer to octal and remove '0o' prefix
+        octalArray.append(octalRepresentation)
+
+    return octalArray
+
+inputString = "abcdeABCDE" #change string here
+result = stringToIntArray(inputString)
 print(result)
 
 hexResult = intToHex(result)
 print(hexResult)
 
-base64_result = int_array_to_base64(result)
-print(base64_result)
+base64Result = intTob64(result)
+print(base64Result)
+
+octalResult = intToOctal(result)
+print(octalResult)
 
 
 
